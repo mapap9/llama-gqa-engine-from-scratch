@@ -4,8 +4,10 @@ A production-grade, bare-metal LLaMA-style autoregressive transformer architectu
 
 ## ⚡ Hardware Telemetry & Performance Metrics
 * **Training Throughput:** Peak saturation at **~76,000 to 77,000 tokens per second**.
+![Throughput](images/telemetry1_throughput.png)
 * **Convergence Latency:** Complete optimization pass over the training split completed in **14.6 minutes**.
 * **VRAM Allocation Efficiency:** Aggressively constrained to **12.2 GB / 16GB** maximum allocation using dynamically grouped matrix math and micro-batched gradient accumulation loops.
+![Usage Metric](images/telemetry2_usage.png)
 * **Target Hardware Context:** Executed natively inside an **AMD ROCm** Linux subsystem utilizing explicitly targeted `sdpa_kernel` execution paths to completely avoid high-latency host framework fallbacks.
 
 ## 🏗️ Low-Level Systems Optimizations Implemented
@@ -33,6 +35,7 @@ The network was trained using the **TinyStories framework** (synthetic corpus op
 
 ### Sample Generation Checkpoint
 **Prompt:** *'Once upon a time, a girl named Lily found a shiny blue key in her garden.'*
+![Generation](images/telemetry4_generate.png)
 
 ```text
 Once upon a time, a girl named Lily found a shiny blue key in her garden. She was so happy and excited that she started to dance around the garden.
